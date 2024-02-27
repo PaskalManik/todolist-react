@@ -11,16 +11,10 @@ const TaskItem = ({ task, deleteTask, toggleCheck, editTaskName, editTaskDate })
     };
 
     const handleSave = () => {
-        // Periksa apakah nilai yang diedit tidak berubah, jika sama, jangan perbarui state
-        if (task.taskName !== editedTaskName || task.dueDate !== editedDueDate) {
-            editTaskName(task.taskName, editedTaskName);
-            editTaskDate(task.taskName, editedDueDate);
-        }
+        editTaskName(task.taskName, editedTaskName);
+        editTaskDate(task.taskName, editedDueDate); 
         setEditMode(false);
     };
-    
-    
-    
     
 
     const handleChangeName = (e) => {
