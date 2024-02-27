@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TaskInput from './components/taskinput';
+import TaskInput from './components/TaskInput.jsx';
 import TaskItem from './components/TaskItem';
 import Stats from './components/Stats.jsx';
 
@@ -39,17 +39,17 @@ function App() {
     }
 
     const editTaskName = (oldTaskName, newTaskName) => {
-        if (toDoList.some(task => task.taskName === newTaskName)) {
+        if (oldTaskName !== newTaskName && toDoList.some(task => task.taskName === newTaskName)) {
             alert('Task with the same name already exists!');
             return;
         }
-
+    
         setToDoList((prevToDoList) =>
             prevToDoList.map((task) =>
                 task.taskName === oldTaskName ? { ...task, taskName: newTaskName } : task
             )
         );
-    }
+    };
 
     const editTaskDate = (taskName, newDueDate) => {
         setToDoList((prevToDoList) =>
